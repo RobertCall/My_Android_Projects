@@ -20,7 +20,9 @@ import androidx.fragment.app.Fragment;
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.Loader;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import static ru.myprojects.diary.DB.db;
 import static ru.myprojects.diary.MainActivity.TAG;
@@ -123,8 +125,8 @@ public class GoToFragment extends Fragment implements View.OnClickListener, Load
         lv.setVisibility(View.VISIBLE);
 
         // формируем столбцы сопоставления
-        String[] from = new String[] { DB.COLUMN_TIME, DB.COLUMN_TXT, DB.COLUMN_COLOR, DB.COLUMN_COLOR };
-        int[] to = new int[] { R.id.tvTime, R.id.tvText, R.id.tvTime, R.id.tvText };
+        String[] from = new String[] { DB.COLUMN_TIME, DB.COLUMN_TXT, DB.COLUMN_COLOR };
+        int[] to = new int[] { R.id.tvTime, R.id.tvText, R.id.tvText };
 
         // создаем адаптер
         scAdapter = new SimpleCursorAdapter(view.getContext(), R.layout.item, null, from, to, 0);
@@ -135,8 +137,8 @@ public class GoToFragment extends Fragment implements View.OnClickListener, Load
                 switch (columnIndex) {
                     case 2:
                         if(view instanceof TextView) {
-                            String s = cursor.getInt(columnIndex)/60 + ":" + cursor.getInt(columnIndex)%60;
-                            ((TextView)view).setText(s);
+                            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+                            ((TextView)view).setText(sdf.format(new Date(0,0,0, cursor.getInt(columnIndex)/60, cursor.getInt(columnIndex)%60)));
                             return true;
                         }
                     case 3:

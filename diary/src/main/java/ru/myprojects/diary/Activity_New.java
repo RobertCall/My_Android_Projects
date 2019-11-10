@@ -16,7 +16,9 @@ import com.flask.colorpicker.ColorPickerView;
 import com.flask.colorpicker.builder.ColorPickerClickListener;
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 /*Активити для создания новой записи*/
 public class Activity_New extends AppCompatActivity {
@@ -42,8 +44,10 @@ public class Activity_New extends AppCompatActivity {
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
             time = hourOfDay*60 + minute;
             //Проверка на корректное время, нельзя создать запись раньше предыдущей
-            if(time > last_time && time < current_hour*60 + current_minute)
-                btn_time_setText(hourOfDay + ":" + minute);
+            if(time > last_time && time < current_hour*60 + current_minute) {
+                SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+                btn_time_setText(sdf.format(new Date(0,0,0, hourOfDay, minute)));
+            }
             else {
                 Toast.makeText(getBaseContext(), "Wrong time", Toast.LENGTH_SHORT).show();
                 time = 0;
