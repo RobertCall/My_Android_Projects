@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Diary</string>
+    <string name="empty">Нет записей</string>
+    <string name="goto_button_text">Выбрать день</string>
+    <string name="time">Time</string>
+    <string name="time_now">Now</string>
+    <string name="color">Color</string>
+    <string name="Btn_OK">OK</string>
+    <string name="Btn_Cancel">Cancel</string>
+    <string name="Btn_New">Новая запись</string>
+    <string name="Delete_record">Удалить запись</string>
+    <string name="Change_color">Изменить цвет</string>
+</resources>

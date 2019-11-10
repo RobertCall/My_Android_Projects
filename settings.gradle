@@ -1,0 +1,2 @@
+include ':diary'
+rootProject.name='My Projects'
