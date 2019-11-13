@@ -164,7 +164,7 @@ public class PageListFragment extends ListFragment implements LoaderManager.Load
                 ColorPickerDialogBuilder
                         .with(getContext())
                         .setTitle("Choose color")
-                        .initialColor(((ColorDrawable)acmi.targetView.findViewById(R.id.tvTime).getBackground()).getColor())
+                        .initialColor(((ColorDrawable)acmi.targetView.findViewById(R.id.tvText).getBackground()).getColor())
                         .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
                         .density(12)
                         .setPositiveButton("ok", new ColorPickerClickListener() {

@@ -68,7 +68,6 @@ public class GoToFragment extends Fragment implements View.OnClickListener, Load
         lv = view.findViewById(R.id.goto_list);
         tv = view.findViewById(R.id.goto_empty);
 
-        Log.d(TAG, "goto");
         return view;
     }
 
